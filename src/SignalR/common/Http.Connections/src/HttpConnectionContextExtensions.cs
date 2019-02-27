@@ -10,7 +10,7 @@ namespace Microsoft.AspNetCore.Http.Connections
     public static class HttpConnectionContextExtensions
     {
         /// <summary>
-        /// Gets the <see cref="HttpContext"/> associated with the connection, if there is one.
+        /// Gets the <see cref="HttpContext"/> associated with the connection, or <see langword="null"/> if there is no HTTP context.
         /// </summary>
         /// <param name="connection">The <see cref="ConnectionContext"/> representing the connection.</param>
         /// <returns>The <see cref="HttpContext"/> associated with the connection, or <see langword="null"/> if the connection is not HTTP-based.</returns>
