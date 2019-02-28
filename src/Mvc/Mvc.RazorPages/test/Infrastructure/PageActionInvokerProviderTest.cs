@@ -446,7 +446,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             };
         }
 
-        private static PageActionInvokerProvider CreateInvokerProvider(
+        private static CompiledPageActionDescriptorCache CreateInvokerProvider(
             PageLoaderBase loader,
             IActionDescriptorCollectionProvider actionDescriptorProvider,
             IPageFactoryProvider pageProvider = null,
@@ -469,7 +469,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
                 Options.Create(mvcOptions),
                 NullLoggerFactory.Instance);
 
-            return new PageActionInvokerProvider(
+            return new CompiledPageActionDescriptorCache(
                 loader,
                 pageProvider ?? Mock.Of<IPageFactoryProvider>(),
                 modelProvider ?? Mock.Of<IPageModelFactoryProvider>(),

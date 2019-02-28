@@ -15,7 +15,6 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
     internal class PageActionInvokerCacheEntry
     {
         public PageActionInvokerCacheEntry(
-            CompiledPageActionDescriptor actionDescriptor,
             Func<IModelMetadataProvider, ModelStateDictionary, ViewDataDictionary> viewDataFactory,
             Func<PageContext, ViewContext, object> pageFactory,
             Action<PageContext, ViewContext, object> releasePage,
@@ -24,10 +23,8 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             Func<PageContext, object, Task> propertyBinder,
             PageHandlerExecutorDelegate[] handlerExecutors,
             PageHandlerBinderDelegate[] handlerBinders,
-            IReadOnlyList<Func<IRazorPage>> viewStartFactories,
-            FilterItem[] cacheableFilters)
+            IReadOnlyList<Func<IRazorPage>> viewStartFactories)
         {
-            ActionDescriptor = actionDescriptor;
             ViewDataFactory = viewDataFactory;
             PageFactory = pageFactory;
             ReleasePage = releasePage;
@@ -37,10 +34,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             HandlerExecutors = handlerExecutors;
             HandlerBinders = handlerBinders;
             ViewStartFactories = viewStartFactories;
-            CacheableFilters = cacheableFilters;
         }
-
-        public CompiledPageActionDescriptor ActionDescriptor { get; }
 
         public Func<PageContext, ViewContext, object> PageFactory { get; }
 
@@ -73,7 +67,6 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
         /// </summary>
         public IReadOnlyList<Func<IRazorPage>> ViewStartFactories { get; }
 
-        public FilterItem[] CacheableFilters { get; }
-
+        public FilterItem[] CacheableFilters { get; set; }
     }
 }

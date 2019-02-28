@@ -76,7 +76,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
                 provider1.Object, provider2.Object
             };
 
-            var loader = new DefaultPageLoader(
+            var loader = new PageLoader(
                 providers,
                 compilerProvider,
                 endpointFactory,
@@ -131,7 +131,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
                 provider.Object,
             };
 
-            var loader = new DefaultPageLoader(
+            var loader = new PageLoader(
                 providers,
                 compilerProvider,
                 endpointFactory,
@@ -195,7 +195,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
                 provider1.Object, provider2.Object
             };
 
-            var loader = new DefaultPageLoader(
+            var loader = new PageLoader(
                 providers,
                 compilerProvider,
                 endpointFactory,
@@ -250,7 +250,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
                 provider.Object,
             };
 
-            var loader = new DefaultPageLoader(
+            var loader = new PageLoader(
                 providers,
                 compilerProvider,
                 endpointFactory,
@@ -285,7 +285,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             };
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, model);
+            PageLoader.ApplyConventions(conventionCollection, model);
 
             // Assert
             convention.Verify();
@@ -319,7 +319,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             };
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, model);
+            PageLoader.ApplyConventions(conventionCollection, model);
 
             // Assert
             globalConvention.Verify();
@@ -348,7 +348,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             var conventionCollection = new PageConventionCollection();
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, applicationModel);
+            PageLoader.ApplyConventions(conventionCollection, applicationModel);
 
             // Assert
             handlerModelConvention.Verify();
@@ -375,7 +375,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             var conventionCollection = new PageConventionCollection { handlerModelConvention.Object };
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, applicationModel);
+            PageLoader.ApplyConventions(conventionCollection, applicationModel);
 
             // Assert
             handlerModelConvention.Verify();
@@ -406,7 +406,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             var conventionCollection = new PageConventionCollection();
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, applicationModel);
+            PageLoader.ApplyConventions(conventionCollection, applicationModel);
 
             // Assert
             handlerModelConvention.Verify();
@@ -437,7 +437,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             var conventionCollection = new PageConventionCollection();
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, applicationModel);
+            PageLoader.ApplyConventions(conventionCollection, applicationModel);
 
             // Assert
             parameterModelConvention.Verify();
@@ -468,7 +468,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             var conventionCollection = new PageConventionCollection { parameterModelConvention.Object };
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, applicationModel);
+            PageLoader.ApplyConventions(conventionCollection, applicationModel);
 
             // Assert
             parameterModelConvention.Verify();
@@ -503,7 +503,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             var conventionCollection = new PageConventionCollection();
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, applicationModel);
+            PageLoader.ApplyConventions(conventionCollection, applicationModel);
 
             // Assert
             parameterModelConvention.Verify();
@@ -537,7 +537,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             var conventionCollection = new PageConventionCollection();
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, applicationModel);
+            PageLoader.ApplyConventions(conventionCollection, applicationModel);
 
             // Assert
             propertyModelConvention.Verify();
@@ -568,7 +568,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             var conventionCollection = new PageConventionCollection { propertyModelConvention.Object };
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, applicationModel);
+            PageLoader.ApplyConventions(conventionCollection, applicationModel);
 
             // Assert
             propertyModelConvention.Verify();
@@ -600,7 +600,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
             var conventionCollection = new PageConventionCollection();
 
             // Act
-            DefaultPageLoader.ApplyConventions(conventionCollection, applicationModel);
+            PageLoader.ApplyConventions(conventionCollection, applicationModel);
 
             // Assert
             propertyModelConvention.Verify();

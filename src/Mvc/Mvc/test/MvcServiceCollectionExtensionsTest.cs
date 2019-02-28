@@ -378,7 +378,7 @@ namespace Microsoft.AspNetCore.Mvc
                         new Type[]
                         {
                             typeof(ControllerActionInvokerProvider),
-                            typeof(PageActionInvokerProvider),
+                            typeof(CompiledPageActionDescriptorCache),
                         }
                     },
                     {

@@ -116,12 +116,10 @@ namespace Microsoft.Extensions.DependencyInjection
             services.TryAddSingleton<IPageActivatorProvider, DefaultPageActivatorProvider>();
             services.TryAddSingleton<IPageFactoryProvider, DefaultPageFactoryProvider>();
 
-#pragma warning disable CS0618 // Type or member is obsolete
-            services.TryAddSingleton<IPageLoader>(s => s.GetRequiredService<PageLoaderBase>());
-#pragma warning restore CS0618 // Type or member is obsolete
-            services.TryAddSingleton<PageLoaderBase, DefaultPageLoader>();
             services.TryAddSingleton<IPageHandlerMethodSelector, DefaultPageHandlerMethodSelector>();
 
+            services.TryAddSingleton<CompiledPageActionDescriptorCache>();
+            
             // Action executors
             services.TryAddSingleton<PageResultExecutor>();
 

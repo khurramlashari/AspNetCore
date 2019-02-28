@@ -65,5 +65,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages
         /// Gets or sets the associated <see cref="Endpoint"/> of this page.
         /// </summary>
         public Endpoint Endpoint { get; set; }
+
+        internal PageActionInvokerCacheEntry PageActionInvokerCacheEntry { get; set; }
     }
 }
