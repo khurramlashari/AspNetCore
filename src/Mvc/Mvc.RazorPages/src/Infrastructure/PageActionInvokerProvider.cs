@@ -125,6 +125,7 @@ namespace Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure
                 var filterFactoryResult = FilterFactory.GetAllFilters(_filterProviders, actionContext);
                 filters = filterFactoryResult.Filters;
 
+                // Allow safe races here. We can allow concurrent executions of this code path to calculate CacheableFilters
                 cacheEntry.CacheableFilters = filterFactoryResult.CacheableFilters;
             }
             else
