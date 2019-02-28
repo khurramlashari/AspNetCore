@@ -9,8 +9,14 @@ using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace Microsoft.AspNetCore.Mvc.Abstractions
 {
+    /// <summary>
+    /// Describes a route action.
+    /// </summary>
     public class ActionDescriptor
     {
+        /// <summary>
+        /// Constructs the <see cref="ActionDescriptor"/>.
+        /// </summary>
         public ActionDescriptor()
         {
             Id = Guid.NewGuid().ToString();
@@ -29,6 +35,9 @@ namespace Microsoft.AspNetCore.Mvc.Abstractions
         /// </summary>
         public IDictionary<string, string> RouteValues { get; set; }
 
+        /// <summary>
+        /// The attribute route info for this action.
+        /// </summary>
         public AttributeRouteInfo AttributeRouteInfo { get; set; }
 
         /// <summary>

@@ -5,8 +5,15 @@ using System;
 
 namespace Microsoft.AspNetCore.Mvc.Abstractions
 {
+    /// <summary>
+    /// The context used by the providers for ActionInvokers.
+    /// </summary>
     public class ActionInvokerProviderContext
     {
+        /// <summary>
+        /// Constructs the <see cref="ActionInvokerProviderContext"/>.
+        /// </summary>
+        /// <param name="actionContext">The context under which to invoke the action.</param>
         public ActionInvokerProviderContext(ActionContext actionContext)
         {
             if (actionContext == null)
@@ -17,8 +24,14 @@ namespace Microsoft.AspNetCore.Mvc.Abstractions
             ActionContext = actionContext;
         }
 
+        /// <summary>
+        /// The context under which to invoke the action.
+        /// </summary>
         public ActionContext ActionContext { get; }
 
+        /// <summary>
+        /// The result of invoking the action.
+        /// </summary>
         public IActionInvoker Result { get; set; }
     }
 }

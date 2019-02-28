@@ -797,6 +797,12 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
         /// <inheritdoc />
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
+        /// <summary>
+        /// Does the key start with the prefix?
+        /// </summary>
+        /// <param name="prefix">The prefix to check against the key.</param>
+        /// <param name="key">The key to check the prefix of.</param>
+        /// <returns>Returns true if <paramref name="key"/> starts with <paramref name="prefix"/>.</returns>
         public static bool StartsWithPrefix(string prefix, string key)
         {
             if (prefix == null)
@@ -1025,6 +1031,7 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
                 _prefix = prefix;
             }
 
+            /// <inheritdoc />
             public Enumerator GetEnumerator() => new Enumerator(_dictionary, _prefix);
 
             IEnumerator<KeyValuePair<string, ModelStateEntry>>
@@ -1060,15 +1067,18 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
                 _visitedRoot = false;
             }
 
+            /// <inheritdoc />
             public KeyValuePair<string, ModelStateEntry> Current =>
                 new KeyValuePair<string, ModelStateEntry>(_modelStateNode.Key, _modelStateNode);
 
             object IEnumerator.Current => Current;
 
+            /// <inheritdoc />
             public void Dispose()
             {
             }
 
+            /// <inheritdoc />
             public bool MoveNext()
             {
                 if (_rootNode == null)
@@ -1128,6 +1138,7 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
                 return false;
             }
 
+            /// <inheritdoc />
             public void Reset()
             {
                 _index = -1;
@@ -1146,6 +1157,7 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
                 _dictionary = dictionary;
             }
 
+            /// <inheritdoc />
             public KeyEnumerator GetEnumerator() => new KeyEnumerator(_dictionary, prefix: string.Empty);
 
             IEnumerator<string> IEnumerable<string>.GetEnumerator() => GetEnumerator();
@@ -1163,12 +1175,15 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
                 Current = null;
             }
 
+            /// <inheritdoc />
             public string Current { get; private set; }
 
             object IEnumerator.Current => Current;
 
+            /// <inheritdoc />
             public void Dispose() => _prefixEnumerator.Dispose();
 
+            /// <inheritdoc />
             public bool MoveNext()
             {
                 var result = _prefixEnumerator.MoveNext();
@@ -1185,6 +1200,7 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
                 return result;
             }
 
+            /// <inheritdoc />
             public void Reset()
             {
                 _prefixEnumerator.Reset();
@@ -1201,6 +1217,7 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
                 _dictionary = dictionary;
             }
 
+            /// <inheritdoc />
             public ValueEnumerator GetEnumerator() => new ValueEnumerator(_dictionary, prefix: string.Empty);
 
             IEnumerator<ModelStateEntry> IEnumerable<ModelStateEntry>.GetEnumerator() => GetEnumerator();
@@ -1218,12 +1235,15 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
                 Current = null;
             }
 
+            /// <inheritdoc />
             public ModelStateEntry Current { get; private set; }
 
             object IEnumerator.Current => Current;
 
+            /// <inheritdoc />
             public void Dispose() => _prefixEnumerator.Dispose();
 
+            /// <inheritdoc />
             public bool MoveNext()
             {
                 var result = _prefixEnumerator.MoveNext();
@@ -1240,6 +1260,7 @@ namespace Microsoft.AspNetCore.Mvc.ModelBinding
                 return result;
             }
 
+            /// <inheritdoc />
             public void Reset()
             {
                 _prefixEnumerator.Reset();

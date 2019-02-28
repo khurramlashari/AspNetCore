@@ -14,6 +14,7 @@ namespace Microsoft.AspNetCore.Mvc.ApplicationModels
     /// </summary>
     public class ConsumesConstraintForFormFileParameterConvention : IActionModelConvention
     {
+        /// <inheritdoc />
         public void Apply(ActionModel action)
         {
             if (action == null)
